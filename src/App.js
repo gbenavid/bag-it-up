@@ -14,7 +14,6 @@ class App extends Component {
 
   componentDidMount() {
     auth.onAuthStateChanged((currentUser) => { 
-      console.log("STATE CHANGED, ", currentUser)
       this.setState({ currentUser });
     })
   }
