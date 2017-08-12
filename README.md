@@ -10,10 +10,10 @@ This is a web-based application. It's main functionality is to help users track 
   * Remove items from your list
   * See the items price (USD)
   * View the grand total of all your items combined
-  * Buy your items in bulk! (Want more than one?-- we got you 🍫🍪🍰🍟🍦🍕🍮🎂🍭🌮)
+  * Buy your items in bulk! (Want more than one? ⏤we got you 🍫🍪🍰🍟🍦🍕🍮🎂🍭🌮)
 
 # Prerequisites
-You must have [node installed] (https://nodejs.org/en/) in your machine.
+You must have [node installed](https://nodejs.org/en/) in your machine.
 
 To begin [fork the repository](https://help.github.com/articles/fork-a-repo/#platform-linux). 
 
