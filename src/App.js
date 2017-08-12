@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { auth, database } from './firebase';
+import { auth } from './firebase';
 import CurrentUser from './CurrentUser';
 import SignIn from './Signin';
 import NewShoppingList from './NewShoppingList';
