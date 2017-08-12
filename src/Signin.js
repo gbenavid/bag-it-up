@@ -5,7 +5,7 @@ class SignIn extends Component {
     render() {
         return (
             <div className="SignIn">
-                <button onClick={()=> auth.signInWithRedirect(githubAuthProvider)}>
+                <button onClick={()=> auth.linkWithPopUp(githubAuthProvider)}>
                     Sign In
                 </button>
             </div>

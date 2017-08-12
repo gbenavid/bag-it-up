@@ -1,5 +1,7 @@
 # Bag-It-Up!
 
+#### Stage: Development
+
 ## Overview/ Summary
 This is a web-based application. It's main functionality is to help users track their shopping needs. 
 
