@@ -1,7 +1,7 @@
 # Bag-It-Up!
 
 ## Overview/ Summary
-This is a web-based application. It's main functionality is to help users track their shopping needs.
+This is a web-based application. It's main functionality is to help users track their shopping needs. 
 
 # Features
   * *Oauth*: Github, Gmail/ Google, Email, Anonymous/ Guest user login is supported by this app.
@@ -11,6 +11,7 @@ This is a web-based application. It's main functionality is to help users track 
   * See the *price* (USD)
   * View the *grand total* of all your items combined
   * *Buy your items in bulk!* (Want more than one? ⏤we got you 🍫🍪🍰🍟🍦🍕🍮🎂🍭🌮)
+  * Registered with Github's API.
 
 # Prerequisites
 You must have [node installed](https://nodejs.org/en/) in your machine.
