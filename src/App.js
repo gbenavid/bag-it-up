@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { auth, database } from './firebase';
 import CurrentUser from './CurrentUser';
 import SignIn from './Signin';
-import './App.css';
+import NewShoppingList from './NewShoppingList';
 
 class App extends Component {
   constructor(props){
@@ -27,7 +27,13 @@ class App extends Component {
         </div>
           <div>
             { !currentUser && <SignIn/> }
-            { currentUser && <CurrentUser user={currentUser} /> }
+            { 
+              currentUser && 
+              <div>
+                <NewShoppingList/>
+                <CurrentUser user={currentUser} /> 
+              </div>
+            }
           </div>
       </div>
     );
