@@ -15,7 +15,7 @@ const CurrentUser = ({ user }) => {
 CurrentUser.propTypes = {
     user: PropTypes.shape({
         displayName: PropTypes.string,
-        email: PropTypes.string.isRequired,
+        email: PropTypes.string,
         photoURL: PropTypes.string,
         uid: PropTypes.string.isRequired
     })
