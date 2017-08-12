@@ -1,4 +1,4 @@
-import firebase from 'firebase'; // this it the SDK itself
+import firebase from 'firebase';
 
 const config = {
     apiKey: "AIzaSyAJDuGvzzynalAwH23Lxh8F9tYBZnFjXu0",
@@ -10,8 +10,8 @@ const config = {
 };
 firebase.initializeApp(config);
 
+export default firebase;
+
 export const database = firebase.database();
 export const auth = firebase.auth();
 export const googleAuthProviders = new firebase.auth.GoogleAuthProvider();
-
-export default firebase;
