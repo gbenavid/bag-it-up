@@ -17,6 +17,11 @@ You must have [node installed](https://nodejs.org/en/) in your machine.
 
 To begin [fork the repository](https://help.github.com/articles/fork-a-repo/#platform-linux). 
 
+Next navigate into the folder and run npm install. This will install all the dependencies that you will need for this project.
+```
+cd bag-it-up
+npm install
+```
 # Languages/ Stack
   * Javascript
   * React.js
