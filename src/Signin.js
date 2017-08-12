@@ -14,9 +14,6 @@ class SignIn extends Component {
                 <button onClick={()=> auth.signInWithRedirect(googleAuthProvider)}>
                     Sign In with Google
                 </button>
-                <button>
-                    Sign In with email
-                </button>
             </div>
         )
     }
