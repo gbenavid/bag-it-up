@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <h2>Welcome to React</h2>
+          <h2>Bag It Up!</h2>
         </div>
           <div>
             { !currentUser && <SignIn/> }
