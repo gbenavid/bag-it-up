@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
-import { database } from './firebase';
+import { auth, database } from './firebase';
+import CurrentUser from './CurrentUser';
 import SignIn from './Signin';
 import './App.css';
-import logo from './logo.svg';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data: null
+      currentUser: null
     };
   }
 
+  componentDidMount() {
+    auth.onAuthStateChanged((currentUser) => { 
+      this.setState({ currentUser });
+    })
+  }
+
   render() {
+    const { currentUser } = this.state;
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div>
+        <div>
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          <SignIn/>
-        </p>
+          <div>
+            { !currentUser && <SignIn/> }
+            { currentUser && <CurrentUser user={currentUser} /> }
+          </div>
       </div>
     );
   }
