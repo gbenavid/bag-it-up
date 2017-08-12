@@ -11,6 +11,9 @@ class SignIn extends Component {
                 <button onClick={()=> auth.signInAnonymously() }>
                     Sign In as a guest
                 </button>
+                <button onClick={()=> auth.signInWithRedirect(googleAuthProvider)}>
+                    Sign In with Google
+                </button>
             </div>
         )
     }
