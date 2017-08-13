@@ -3,6 +3,7 @@ import { auth, database } from './firebase';
 import CurrentUser from './CurrentUser';
 import SignIn from './Signin';
 import NewShoppingList from './NewShoppingList';
+import ShoppingLists from './ShoppingLists'
 import map from 'lodash/map';
 
 class App extends Component {
