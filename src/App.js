@@ -8,40 +8,46 @@ import ShoppingLists from './ShoppingLists'
 class App extends Component {
   constructor(props){
     super(props);
+    this.shoppingListsRef = null;
     this.state = {
-      currentUser: null,
-      shoppingLists: null
+      user: null
     };
-    this.shoppingListRef = database.ref('/shopping_list');
+    
   }
 
   componentDidMount() {
-    auth.onAuthStateChanged((currentUser) => { 
-      this.setState({ currentUser });
+    auth.onAuthStateChanged((user) => { 
+      this.setState({ user });
 
-      this.shoppingListRef.on('value', (snapshot) => {
+      this.shoppingListsRef = database.ref('shopping_list');
+      this.shoppingListsRef.on('value', (snapshot) => {
         this.setState({ shoppingLists: snapshot.val() })
       });
     })
   }
 
   render() {
-    const { currentUser, shoppingLists } = this.state;
+    const { user, shoppingLists } = this.state;
     return (
       <div>
         <div>
           <h2>Bag It Up!</h2>
         </div>
           <div>
-            { !currentUser && <SignIn/> }
-            { 
-              currentUser && 
-              <div>
-                <NewShoppingList/>
-                <CurrentUser user={currentUser} /> 
-                <ShoppingLists shoppingLists={shoppingLists}/>
+          { user
+            ? <div>
+                <NewShoppingList
+                  shoppingListsRef={this.shoppingListsRef}
+                />
+                {
+                  shoppingLists &&
+                  <ShoppingLists shoppingLists={shoppingLists} user={user} shoppingListsRef={this.shoppingListsRef}/>
+                }
+                <CurrentUser user={user} />
               </div>
-            }
+            : <SignIn />
+          }
+  
           </div>
       </div>
     );

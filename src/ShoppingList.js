@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react';
 
 class ShoppingList extends Component {
   render () {
-    const { name, user, handleSelect, handleDeselect } = this.props;
-    return (
+    const { name, user, handleDelete } = this.props;
+    return ( 
       <article>
         <h3>{ name }</h3>
-        <button>Delete</button>
+        <button onClick={handleDelete} >Delete</button>
         <button>Select</button>
       </article>
     );
@@ -14,10 +14,9 @@ class ShoppingList extends Component {
 }
 
 ShoppingList.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   user: PropTypes.object,
-  handleSelect: PropTypes.func,
-  handleDeselect: PropTypes.func
+  handleDelete: PropTypes.func.isRequired
 };
 
 export default ShoppingList;
