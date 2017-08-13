@@ -21,7 +21,7 @@ class App extends Component {
 
       this.shoppingListsRef = database.ref('shopping_list');
       this.shoppingListsRef.on('value', (snapshot) => {
-        this.setState({ shoppingLists: snapshot.val() })
+      this.setState({ shoppingLists: snapshot.val() })
       });
     })
   }
