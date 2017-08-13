@@ -40,7 +40,7 @@ class App extends Component {
               <div>
                 <NewShoppingList/>
                 <CurrentUser user={currentUser} /> 
-                { map(shoppingLists, (shoppingList, key) => <p>{ shoppingList.name }</p>) }
+                <ShoppingLists shoppingLists={shoppingLists}/>
               </div>
             }
           </div>
