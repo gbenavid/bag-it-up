@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { auth, database } from './firebase';
+import { auth } from './firebase';
 import CurrentUser from './CurrentUser';
 import SignIn from './Signin';
-import './App.css';
+import NewShoppingList from './NewShoppingList';
 
 class App extends Component {
   constructor(props){
@@ -23,11 +23,17 @@ class App extends Component {
     return (
       <div>
         <div>
-          <h2>Welcome to React</h2>
+          <h2>Bag It Up!</h2>
         </div>
           <div>
             { !currentUser && <SignIn/> }
-            { currentUser && <CurrentUser user={currentUser} /> }
+            { 
+              currentUser && 
+              <div>
+                <NewShoppingList/>
+                <CurrentUser user={currentUser} /> 
+              </div>
+            }
           </div>
       </div>
     );
