@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
-import { auth } from './firebase';
+import { auth, database } from './firebase';
 import CurrentUser from './CurrentUser';
 import SignIn from './Signin';
 import NewShoppingList from './NewShoppingList';
 import map from 'lodash/map';
 
-
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentUser: null
+      currentUser: null,
+      shoppingLists: null
     };
+    this.shoppingListRef = database.ref('/shopping_list');
   }
 
   componentDidMount() {
     auth.onAuthStateChanged((currentUser) => { 
       this.setState({ currentUser });
+
+      this.shoppingListRef.on('value', (snapshot) => {
+        this.setState({ shoppingLists: snapshot.val() })
+      });
     })
   }
 
   render() {
-    const { currentUser } = this.state;
+    const { currentUser, shoppingLists } = this.state;
     return (
       <div>
         <div>
@@ -34,6 +39,7 @@ class App extends Component {
               <div>
                 <NewShoppingList/>
                 <CurrentUser user={currentUser} /> 
+                { map(shoppingLists, (shoppingList, key) => <p>{ shoppingList.name }</p>) }
               </div>
             }
           </div>
