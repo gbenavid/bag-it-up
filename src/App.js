@@ -38,6 +38,7 @@ class App extends Component {
             ? <div>
                 <NewShoppingList
                   shoppingListsRef={this.shoppingListsRef} user={user}
+                  placeholderAttribute={"List name"}
                 />
                 {
                   shoppingLists &&
