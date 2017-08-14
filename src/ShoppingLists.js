@@ -1,30 +1,25 @@
 import React, { Component, PropTypes } from 'react';
-import { database } from './firebase';
 import ShoppingList from './ShoppingList';
+import ShowItems from './ShowItems';
 import map from 'lodash/map';
 
 class ShoppingLists extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.handleDelete = this.handleDelete.bind(this);
-      }
-  
-    
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+ 
   handleDelete(key) {
-    const { shoppingListsRef, user } = this.props;
-
-      shoppingListsRef.child(key).remove();
+    const { shoppingListsRef } = this.props;
+    shoppingListsRef.child(key).remove();
   }
 
-    render () {
+  render () {
     const { shoppingLists, user } = this.props;
     return (
       <section>
           { map(shoppingLists, (shoppingList, key) => (
-          <ShoppingList key={key}  user={user} {...shoppingList}      
-            handleDelete={ () => this.handleDelete(key)}
-          />
+            <ShoppingList key={key} appendTo={key} user={user} {...shoppingList} handleDelete={ () => this.handleDelete(key) } />
           )) }
       </section>
     );

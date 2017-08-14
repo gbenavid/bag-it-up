@@ -18,13 +18,12 @@ class NewShoppingList extends Component {
 
   render() {
     const { name } = this.state;
-
     return (
       <form>
         <input
           type="text"
           value={ name }
-          placeholder="Name of List"
+          placeholder={this.props.placeholderAttribute}
           onChange={(event) => this.setState({ name: event.target.value })}
         />
         <button
@@ -39,7 +38,7 @@ class NewShoppingList extends Component {
 }
 
 NewShoppingList.propTypes = {
-  restaurantsRef: PropTypes.object
+  shoppingListRef: PropTypes.object
 };
 
 export default NewShoppingList;
