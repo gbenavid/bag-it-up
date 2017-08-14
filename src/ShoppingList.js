@@ -6,8 +6,8 @@ class ShoppingList extends Component {
     return ( 
       <article>
         <h3>{ name }</h3>
-        <button onClick={handleDelete} >Delete</button>
-        <button>Select</button>
+        <button onClick={handleDelete}> Delete </button>
+        <button onClick={}>Select</button>
       </article>
     );
   }
