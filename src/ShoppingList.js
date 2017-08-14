@@ -5,7 +5,8 @@ class ShoppingList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      childVisible: false
+      childVisible: false,
+      items: false
     }
   }
 
@@ -14,16 +15,16 @@ class ShoppingList extends Component {
   }
 
   render () {
-    const { name, user, handleDelete } = this.props;
+    const { name, user, handleDelete, appendTo } = this.props;
     return ( 
       <article>
         <h3>{ name }</h3>
         <button onClick={ handleDelete }> Delete </button>
         <button onClick={()=> this.onClick()}> Select </button>
         {
-        	this.state.childVisible
-            ? <ShowItems />
-            : null
+          this.state.childVisible ?
+            <ShowItems user={this.props.user} appendTo={appendTo}/>
+          : <span></span>
         }
       </article>
     );
@@ -33,6 +34,7 @@ class ShoppingList extends Component {
 ShoppingList.propTypes = {
   name: PropTypes.string.isRequired,
   user: PropTypes.object,
+  appendTo: PropTypes.string.isRequired,
   handleDelete: PropTypes.func.isRequired
 };
 
