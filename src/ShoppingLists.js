@@ -19,7 +19,7 @@ class ShoppingLists extends Component {
     return (
       <section>
           { map(shoppingLists, (shoppingList, key) => (
-            <ShoppingList key={key}  user={user} {...shoppingList} handleDelete={ () => this.handleDelete(key) } />
+            <ShoppingList key={key} appendTo={key} user={user} {...shoppingList} handleDelete={ () => this.handleDelete(key) } />
           )) }
       </section>
     );
