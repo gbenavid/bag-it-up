@@ -18,7 +18,6 @@ class NewShoppingList extends Component {
 
   render() {
     const { name } = this.state;
-
     return (
       <form>
         <input
