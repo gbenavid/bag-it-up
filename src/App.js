@@ -12,7 +12,6 @@ class App extends Component {
     this.state = {
       user: null
     };
-    
   }
 
   componentDidMount() {
