@@ -18,11 +18,12 @@ class App extends Component {
   componentDidMount() {
     auth.onAuthStateChanged((user) => { 
       this.setState({ user });
-
-      this.shoppingListsRef = database.ref('shopping_list');
-      this.shoppingListsRef.on('value', (snapshot) => {
-        this.setState({ shoppingLists: snapshot.val() })
-      });
+      { if (user) {
+        this.shoppingListsRef = database.ref('shopping_list').child(user.uid);
+        this.shoppingListsRef.on('value', (snapshot) => {
+          this.setState({ shoppingLists: snapshot.val() })
+        })}
+      }
     })
   }
 
@@ -37,7 +38,7 @@ class App extends Component {
           { user
             ? <div>
                 <NewShoppingList
-                  shoppingListsRef={this.shoppingListsRef}
+                  shoppingListsRef={this.shoppingListsRef} user={user}
                 />
                 {
                   shoppingLists &&
