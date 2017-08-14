@@ -1,10 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import ShoppingList from './ShoppingList';
+import ShowItems from './ShowItems';
 import map from 'lodash/map';
 
 class ShoppingLists extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      
+    }
     this.handleDelete = this.handleDelete.bind(this);
   }
  
@@ -14,8 +18,10 @@ class ShoppingLists extends Component {
   }
 
   handleSelect(key) {
+    const { shoppingListsRef } = this.props; // grab the ref in database
     console.log("Expand node: " + key);
-    
+    // update the state to show elements in this node
+    // this.shouldHide.setState = false;
   }
 
     render () {
