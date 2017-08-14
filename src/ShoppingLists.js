@@ -1,19 +1,21 @@
 import React, { Component, PropTypes } from 'react';
-import { database } from './firebase';
 import ShoppingList from './ShoppingList';
 import map from 'lodash/map';
 
 class ShoppingLists extends Component {
-    constructor(props) {
-        super(props);
-        this.handleDelete = this.handleDelete.bind(this);
-      }
-  
-    
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+ 
   handleDelete(key) {
-    const { shoppingListsRef, user } = this.props;
+    const { shoppingListsRef } = this.props;
+    shoppingListsRef.child(key).remove();
+  }
 
-      shoppingListsRef.child(key).remove();
+  handleSelect(key) {
+    console.log("Expand node: " + key);
+    
   }
 
     render () {
@@ -22,7 +24,7 @@ class ShoppingLists extends Component {
       <section>
           { map(shoppingLists, (shoppingList, key) => (
           <ShoppingList key={key}  user={user} {...shoppingList}      
-            handleDelete={ () => this.handleDelete(key)}
+            handleDelete={ () => this.handleDelete(key) } handleSelect={ () => this.handleSelect(key)}
           />
           )) }
       </section>
