@@ -13,7 +13,7 @@ class NewShoppingList extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.shoppingListRef.push({name: this.state.name });
+    this.shoppingListRef.child(this.props.user.uid).push({name: this.state.name });
   }
 
   render() {
