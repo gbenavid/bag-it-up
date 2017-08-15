@@ -5,6 +5,9 @@ import map from 'lodash/map';
 class ShowItems extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      numberOfItemsOnList: 0
+    }
   }
   render () {
     return (
