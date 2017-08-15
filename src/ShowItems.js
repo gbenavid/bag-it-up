@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import NewListItem from './NewListItem'
+import map from 'lodash/map';
 
 class ShowItems extends Component {
   constructor(props){
@@ -12,7 +13,8 @@ class ShowItems extends Component {
           user={this.props.user}
           appendTo={this.props.appendTo}
         />
-        {/* map through all of the children nodes */}
+      
+        {/* map through all of the children in append to with the value of itemName*/}
       </div>
     );
   }

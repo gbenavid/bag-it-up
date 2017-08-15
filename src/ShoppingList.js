@@ -1,17 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import ShowItems from './ShowItems';
+import { database } from './firebase';
 
 class ShoppingList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      childVisible: false,
-      items: false
+      childVisible: false
     }
   }
 
   onClick() {
     this.setState({childVisible: !this.state.childVisible});
+    console.log(database.ref('/shopping_lists').child(this.props.user.uid).child(this.props.appendTo).length);
   }
 
   render () {
