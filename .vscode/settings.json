@@ -1,0 +1,5 @@
+{
+    "editor.wordWrap": "on",
+    "files.autoSave" : "onWindowChange",
+    "editor.fontSize": "15"
+}
