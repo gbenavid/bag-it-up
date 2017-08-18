@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ShowItems from './ShowItems';
 import { database } from './firebase';
+import map from 'lodash/map';
 
 class ShoppingList extends Component {
   constructor(props){
@@ -10,9 +11,9 @@ class ShoppingList extends Component {
     }
   }
 
-  onClick() {
+  onClick(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
-    console.log(database.ref('/shopping_lists').child(this.props.user.uid).child(this.props.appendTo).length);
+    this.props.toggleItems();
   }
 
   render () {
@@ -24,7 +25,10 @@ class ShoppingList extends Component {
         <button onClick={()=> this.onClick()}> Select </button>
         {
           this.state.childVisible ?
-            <ShowItems user={this.props.user} appendTo={appendTo}/>
+            <ShowItems  user={this.props.user} 
+                        appendTo={appendTo}
+                        content={this.props.content}
+            />
           : <span></span>
         }
       </article>
