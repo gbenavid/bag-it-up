@@ -18,7 +18,7 @@ class App extends Component {
     auth.onAuthStateChanged((user) => { 
       this.setState({ user });
       { if (user) {
-        this.shoppingListsRef = database.ref('shopping_list').child(user.uid);
+        this.shoppingListsRef = database.ref('/shopping_list').child(user.uid);
         this.shoppingListsRef.on('value', (snapshot) => {
           this.setState({ shoppingLists: snapshot.val() })
         })}
