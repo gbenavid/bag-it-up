@@ -7,7 +7,7 @@ class NewShoppingList extends Component {
     this.state = {
       name: ''
     };
-    
+    // .child(user.uid)
     this.shoppingListRef = database.ref('/shopping_list').child(props.user.uid);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
