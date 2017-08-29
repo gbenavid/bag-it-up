@@ -18,10 +18,9 @@ class App extends Component {
   componentDidMount() {
     auth.onAuthStateChanged((user) => { 
       this.setState({ user });
-
       this.shoppingListsRef = database.ref('shopping_list');
-      this.shoppingListsRef.on('value', (snapshot) => {
-        this.setState({ shoppingLists: snapshot.val() })
+      this.shoppingListsRef.on('value', (snapshot) => { 
+      this.setState({ shoppingLists: snapshot.val() })
       });
     })
   }
@@ -33,22 +32,20 @@ class App extends Component {
         <div>
           <h2>Bag It Up!</h2>
         </div>
-          <div>
-          { user
-            ? <div>
-                <NewShoppingList
-                  shoppingListsRef={this.shoppingListsRef}
-                />
+        <div>
+          { user ? 
+            <div>
+                <NewShoppingList shoppingListsRef={ this.shoppingListsRef } user={user} />
                 {
                   shoppingLists &&
-                  <ShoppingLists shoppingLists={shoppingLists} user={user} shoppingListsRef={this.shoppingListsRef}/>
+                  <ShoppingLists shoppingLists={ shoppingLists } user={user} shoppingListsRef={this.shoppingListsRef}/>
                 }
                 <CurrentUser user={user} />
               </div>
-            : <SignIn />
+            : 
+            <SignIn />
           }
-  
-          </div>
+        </div>
       </div>
     );
   }

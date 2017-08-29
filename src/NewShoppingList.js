@@ -2,12 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import { database } from './firebase';
 
 class NewShoppingList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: ''
     };
-    this.shoppingListRef = database.ref('/shopping_list');
+    // .child(user.uid)
+    this.shoppingListRef = database.ref('/shopping_list').child(props.user.uid);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
