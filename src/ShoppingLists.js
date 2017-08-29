@@ -10,19 +10,15 @@ class ShoppingLists extends Component {
       }
 
   handleDelete(key) {
-    const { shoppingListsRef, user } = this.props;    
-    // console.log(map(this.props.shoppingLists, (shoppingList, key) => (
-    //   console.log(key)
-    // )))
-      console.log(shoppingListsRef.child(key));
-      // shoppingListsRef.child(key).remove();
+    const { shoppingListsRef, user } = this.props;
+    shoppingListsRef.child(key).remove();
   }
     render () {
     const { shoppingListsRef, user } = this.props;
     return (
       <section>
           { map(shoppingListsRef, (shoppingList, key) => (
-            <ShoppingList key={key} name={shoppingList.name} user={user} {...shoppingList}      
+            <ShoppingList key={key} user={user} {...shoppingList}      
               handleDelete={ () => this.handleDelete(key)}
             />
           )) }
