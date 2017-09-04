@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ShowItems from './ShowItems';
 import { database } from './firebase';
-import map from 'lodash/map';
 
 class ShoppingList extends Component {
   constructor(props){
@@ -10,6 +9,7 @@ class ShoppingList extends Component {
       childVisible: false
     }
   }
+/* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
 
   onClick(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
