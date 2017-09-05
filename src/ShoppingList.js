@@ -13,7 +13,7 @@ class ShoppingList extends Component {
 
   clicked(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
-    this.props.toggleItems();
+    this.props.toggleItems(key, marketName);
     console.log("items have been toggled");
     // this.setState({itemsToggled: !this.state.itemsToggled});
   }
