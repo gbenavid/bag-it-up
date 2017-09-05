@@ -13,11 +13,8 @@ class NewListItem extends Component {
   }
 
   handleSubmit(event) {
-    console.log('hitting handleSubmit()');
     event.preventDefault();
-    console.log('preventing default');
     this.listItemRef.push({ itemName: this.state.itemName });
-    console.log('success');
   }
 
   render() {
