@@ -20,18 +20,20 @@ class ShowItems extends Component {
           user={this.props.user}
           appendTo={this.props.appendTo}
         />
+        <ul>
         {
           map(itemsArray, item =>(
-            <p>{item}</p>
+            <li>{item}</li>
           ))
         }
+        </ul>
         {/*
         Removed --->
          <LoopThroughItemsOnList 
           user={this.props.user} 
           itemsRef={this.props.itemsRef}
-          content={this.props.content}
-        /> */}
+          content={this.props.content} /> 
+        */}
       </div>
     );
   }
