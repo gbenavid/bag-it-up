@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { database } from './firebase';
 import NewListItem from './NewListItem'
-import LoopThroughItemsOnList from './loopThroughItemsOnList';
+
 import map from 'lodash/map';
 
 class ShowItems extends Component {
