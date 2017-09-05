@@ -30,7 +30,7 @@ class ShoppingList extends Component {
         <button onClick={()=> this.clicked(appendTo, name)}> Select </button>
         {
           this.state.childVisible ?
-            <ShowItems  user={this.props.user} 
+            <ShowItems  user={user} 
                         appendTo={appendTo}
                         content={this.props.content}
             />
