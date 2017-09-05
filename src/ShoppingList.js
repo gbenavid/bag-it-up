@@ -10,10 +10,19 @@ class ShoppingList extends Component {
     }
   }
 /* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
+  display(storeItems){
+    for(var i=0; i<storeItems.length;i++){
+      
+    }
+  }
 
   clicked(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
-    this.props.toggleItems(key, marketName);
+    // if marketName is the same that the user is clicking on.... 
+    // pass in those values to toggleItems(key, marketName);
+    this.props.toggleItems(key, marketName); // shows items belonging to this market
+  console.log(this.props.content);
+    this.display(this.props.content);
     // this.setState({itemsToggled: !this.state.itemsToggled});
   }
 
