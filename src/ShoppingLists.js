@@ -22,6 +22,7 @@ class ShoppingLists extends Component {
     const properties = [];
     
     this.itemsListedRef.on("value", function(snapshot) {
+      
       var marketObj = snapshot.val();
       var keysInMarketObj = Object.keys(marketObj);
       for (var i in keysInMarketObj){
@@ -30,7 +31,7 @@ class ShoppingLists extends Component {
             if ((marketObj[keysInMarketObj[i]][j].itemName !== undefined) && (!properties.includes(marketObj[keysInMarketObj[i]][j].itemName))){
               properties.push(marketObj[keysInMarketObj[i]][j].itemName);
             }
-          }          
+          }
         }
       }
     }, function (errorObject) {
