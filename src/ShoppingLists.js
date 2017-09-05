@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { database } from './firebase';
 import ShoppingList from './ShoppingList';
 import ShowItems from './ShowItems';
-import LoopThroughItemsOnList from './LoopThroughItemsOnList';
+import LoopThroughItemsOnList from './loopThroughItemsOnList';
 import map from 'lodash/map';
 
 class ShoppingLists extends Component {
