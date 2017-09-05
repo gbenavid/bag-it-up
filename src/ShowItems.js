@@ -13,7 +13,7 @@ class ShowItems extends Component {
   }
 
   render () {
-    var itemsArray = this.props.content;//.slice(1, this.props.content.length - 1); please slice off the last one if content contains 2 or more elements. thanks.
+    var itemsArray = this.props.content;
     return (
       <div>
         <NewListItem 
