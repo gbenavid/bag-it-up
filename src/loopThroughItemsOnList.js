@@ -11,10 +11,12 @@ class LoopThroughItemsOnList extends Component {
   //   const { itemsRef } = this.props;
   //   itemsRef.child(key).remove();
   // }
+
   render () {
     return (
       <section>
-        {this.props.content.map( item => 
+        {
+          this.props.content.map( item => 
           <div>{item}</div>
         )}
       </section>
