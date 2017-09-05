@@ -9,6 +9,7 @@ class ShoppingList extends Component {
       childVisible: false,
       newlyAppendedListItems: []
     }
+    this.clicked = this.clicked.bind(this);
   }
 /* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
   display(storeItemsArray, ref){
@@ -45,6 +46,7 @@ class ShoppingList extends Component {
 
   render () {
     const { name, user, handleDelete, appendTo } = this.props;
+    const { ref } = database.ref('/shopping_list').child(user.uid).child(appendTo);
     return ( 
       <article>
         <h3>{ name }</h3>
@@ -55,6 +57,8 @@ class ShoppingList extends Component {
             <ShowItems  user={user} 
                         appendTo={appendTo}
                         content={this.props.content}
+                        listName={this.props.name}
+                        itemsRef={ref}
             />
           : <span></span>
         }
