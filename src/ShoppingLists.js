@@ -28,12 +28,14 @@ class ShoppingLists extends Component {
     this.itemsListedRef.on("value", function(snapshot) {
       var marketObj = snapshot.val();
       var keysInMarketObj = Object.keys(marketObj);
-      for(var i in keysInMarketObj){
-        for(var j in marketObj[keysInMarketObj[i]]){
-          if (marketObj[keysInMarketObj[i]].name ===  marketClicked ){
-            properties.push(marketObj[keysInMarketObj[i]][j].itemName);
+      for (var i in keysInMarketObj){
+        for (var j in marketObj[keysInMarketObj[i]]){
+          if (marketObj[keysInMarketObj[i]].name ===  marketClicked){
+            if (marketObj[keysInMarketObj[i]][j].itemName != undefined){
+              properties.push(marketObj[keysInMarketObj[i]][j].itemName);
+            }
             // this.setState({listedItems: properties} );
-          }
+          }          
         }
       }
     }, function (errorObject) {
