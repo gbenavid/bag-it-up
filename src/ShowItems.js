@@ -27,13 +27,6 @@ class ShowItems extends Component {
           ))
         }
         </ul>
-        {/*
-        Removed --->
-         <LoopThroughItemsOnList 
-          user={this.props.user} 
-          itemsRef={this.props.itemsRef}
-          content={this.props.content} /> 
-        */}
       </div>
     );
   }
