@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import ShowItems from './ShowItems';
-import { database } from './firebase';
 
 class ShoppingList extends Component {
   constructor(props){
@@ -11,7 +10,8 @@ class ShoppingList extends Component {
   }
 /* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
   display(storeItems){
-    // listen for changes in state... has a user added an item? Removed an item?
+    // listen for changes in state
+      // set the state.
     // return an accurate updated array based on changes in state
   }
 
