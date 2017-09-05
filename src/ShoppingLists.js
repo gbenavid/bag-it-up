@@ -30,10 +30,9 @@ class ShoppingLists extends Component {
       for (var i in keysInMarketObj){
         for (var j in marketObj[keysInMarketObj[i]]){
           if (marketObj[keysInMarketObj[i]].name ===  marketClicked){
-            if (marketObj[keysInMarketObj[i]][j].itemName != undefined){
+            if ((marketObj[keysInMarketObj[i]][j].itemName != undefined) && (!properties.includes(marketObj[keysInMarketObj[i]][j].itemName))){
               properties.push(marketObj[keysInMarketObj[i]][j].itemName);
             }
-            // this.setState({listedItems: properties} );
           }          
         }
       }
