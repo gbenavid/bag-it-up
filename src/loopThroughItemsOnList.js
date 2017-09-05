@@ -13,12 +13,16 @@ class LoopThroughItemsOnList extends Component {
   // }
 
   render () {
+
+    var limit = this.props.content.length - 1; 
     return (
       <section>
-        {
-          this.props.content.map( item => 
-          <div>{item}</div>
+        <ul>
+        { 
+          this.props.content.map( (item, id) => id != limit ?  
+          <li>{item}</li> : <span/>
         )}
+        </ul>
       </section>
     );
   }
