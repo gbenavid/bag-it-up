@@ -14,6 +14,8 @@ class ShoppingList extends Component {
   onClick(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
     this.props.toggleItems();
+    console.log("items have been toggled");
+    // this.setState({itemsToggled: !this.state.itemsToggled});
   }
 
   render () {
@@ -22,7 +24,7 @@ class ShoppingList extends Component {
       <article>
         <h3>{ name }</h3>
         <button onClick={ handleDelete }> Delete </button>
-        <button onClick={()=> this.onClick()}> Select </button>
+        <button onClick={()=> this.onClick(appendTo, name)}> Select </button>
         {
           this.state.childVisible ?
             <ShowItems  user={this.props.user} 
