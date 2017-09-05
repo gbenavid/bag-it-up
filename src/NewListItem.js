@@ -29,7 +29,7 @@ class NewListItem extends Component {
           onChange={ (event)=> this.setState({ itemName: event.target.value })}
         />
         <button
-          onClick={(e) => this.handleSubmit(e)}
+          onClick={(e) => this.handleSubmit(e)} disabled={!itemName}
         >
           Submit
         </button>

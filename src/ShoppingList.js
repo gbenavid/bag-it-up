@@ -1,17 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import ShowItems from './ShowItems';
+import { database } from './firebase';
 
 class ShoppingList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      childVisible: false,
-      items: false
+      childVisible: false
     }
   }
+/* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
 
-  onClick() {
+  onClick(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
+    this.props.toggleItems();
   }
 
   render () {
@@ -23,7 +25,10 @@ class ShoppingList extends Component {
         <button onClick={()=> this.onClick()}> Select </button>
         {
           this.state.childVisible ?
-            <ShowItems user={this.props.user} appendTo={appendTo}/>
+            <ShowItems  user={this.props.user} 
+                        appendTo={appendTo}
+                        content={this.props.content}
+            />
           : <span></span>
         }
       </article>
