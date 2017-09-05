@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ShowItems from './ShowItems';
+import { database } from './firebase';
 
 class ShoppingList extends Component {
   constructor(props){
@@ -10,6 +11,9 @@ class ShoppingList extends Component {
   }
 /* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
   display(storeItems){
+    database.ref('/shopping_list').child(this.props.user.uid).child(this.props.appendTo).on("value", function(snapshot){
+      console.log(snapshot.val());
+    })
     // listen for changes in state
       // set the state.
     // return an accurate updated array based on changes in state
