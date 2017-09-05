@@ -19,6 +19,7 @@ class ShowItems extends Component {
         <NewListItem 
           user={this.props.user}
           appendTo={this.props.appendTo}
+          content={this.props.content}
         />
         <ul>
         {

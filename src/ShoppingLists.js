@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { database } from './firebase';
 import ShoppingList from './ShoppingList';
-import ShowItems from './ShowItems';
 import map from 'lodash/map';
 
 class ShoppingLists extends Component {
@@ -18,22 +17,21 @@ class ShoppingLists extends Component {
     const { shoppingListsRef } = this.props;
     shoppingListsRef.child(key).remove();
   }
-  componentWillMount(){
-
-  }
   
   toggleItems(key, marketClicked){
     const properties = [];
+    
     this.itemsListedRef.on("value", function(snapshot) {
+      
       var marketObj = snapshot.val();
       var keysInMarketObj = Object.keys(marketObj);
       for (var i in keysInMarketObj){
         for (var j in marketObj[keysInMarketObj[i]]){
           if (marketObj[keysInMarketObj[i]].name ===  marketClicked){
-            if ((marketObj[keysInMarketObj[i]][j].itemName != undefined) && (!properties.includes(marketObj[keysInMarketObj[i]][j].itemName))){
+            if ((marketObj[keysInMarketObj[i]][j].itemName !== undefined) && (!properties.includes(marketObj[keysInMarketObj[i]][j].itemName))){
               properties.push(marketObj[keysInMarketObj[i]][j].itemName);
             }
-          }          
+          }
         }
       }
     }, function (errorObject) {
@@ -43,7 +41,7 @@ class ShoppingLists extends Component {
   }
 
   render () {
-    const { shoppingLists, user, shoppingListsRef, properties } = this.props;
+    const { shoppingLists, user } = this.props;
     return (
       <section>
         {map(shoppingLists, (shoppingList, key) => (

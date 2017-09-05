@@ -11,7 +11,11 @@ class ShoppingList extends Component {
   }
 /* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
   display(storeItems){
-    // listen for changes in state... has a user added an item? Removed an item?
+    database.ref('/shopping_list').child(this.props.user.uid).child(this.props.appendTo).on("value", function(snapshot){
+      console.log(snapshot.val());
+    })
+    // listen for changes in state
+      // set the state.
     // return an accurate updated array based on changes in state
   }
 
@@ -30,7 +34,7 @@ class ShoppingList extends Component {
         <button onClick={()=> this.clicked(appendTo, name)}> Select </button>
         {
           this.state.childVisible ?
-            <ShowItems  user={this.props.user} 
+            <ShowItems  user={user} 
                         appendTo={appendTo}
                         content={this.props.content}
             />

@@ -13,11 +13,10 @@ class NewListItem extends Component {
   }
 
   handleSubmit(event) {
-    console.log('hitting handleSubmit()');
     event.preventDefault();
-    console.log('preventing default');
-    this.listItemRef.push({ itemName: this.state.itemName });
-    console.log('success');
+    if (!this.props.content.includes(this.state.itemName)) {
+      this.listItemRef.push({ itemName: this.state.itemName });
+    }
   }
 
   render() {
