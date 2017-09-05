@@ -33,7 +33,6 @@ class ShoppingLists extends Component {
             if (marketObj[keysInMarketObj[i]][j].itemName != undefined){
               properties.push(marketObj[keysInMarketObj[i]][j].itemName);
             }
-            // this.setState({listedItems: properties} );
           }          
         }
       }
