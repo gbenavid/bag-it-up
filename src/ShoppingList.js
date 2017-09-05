@@ -7,7 +7,8 @@ class ShoppingList extends Component {
     super(props);
     this.state = {
       childVisible: false,
-      newlyAppendedListItems: []
+      newlyAppendedListItems: [],
+      currentListName: ""
     }
     this.clicked = this.clicked.bind(this);
   }
@@ -37,6 +38,7 @@ class ShoppingList extends Component {
 
   clicked(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
+    this.setState({currentListName: marketName});
     this.props.toggleItems(key, marketName); // sets state of this.props.content
     var listRef = database.ref('/shopping_list').child(this.props.user.uid).child(key); // which list/ market
     
@@ -53,12 +55,11 @@ class ShoppingList extends Component {
         <button onClick={ handleDelete }> Delete </button>
         <button onClick={()=> this.clicked(appendTo, name)}> Select </button>
         {
-          this.state.childVisible ?
+          this.state.childVisible && name === this.state.currentListName ?
             <ShowItems  user={user} 
                         appendTo={appendTo}
                         content={this.props.content}
                         listName={this.props.name}
-                        itemsRef={ref}
             />
           : <span></span>
         }
