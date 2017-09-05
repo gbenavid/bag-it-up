@@ -13,16 +13,25 @@ class ShowItems extends Component {
   }
 
   render () {
+    var itemsArray = this.props.content.slice(1, this.props.content.length - 1);
     return (
       <div>
         <NewListItem 
           user={this.props.user}
           appendTo={this.props.appendTo}
         />
-        <LoopThroughItemsOnList user={this.props.user} 
-                                itemsRef={this.itemsRef}
-                                content={this.props.content}
-        />
+        {
+          map(itemsArray, item =>(
+            <p>{item}</p>
+          ))
+        }
+        {/*
+        Removed --->
+         <LoopThroughItemsOnList 
+          user={this.props.user} 
+          itemsRef={this.props.itemsRef}
+          content={this.props.content}
+        /> */}
       </div>
     );
   }
