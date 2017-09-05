@@ -14,7 +14,9 @@ class NewListItem extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.listItemRef.push({ itemName: this.state.itemName });
+    if (!this.props.content.includes(this.state.itemName)) {
+      this.listItemRef.push({ itemName: this.state.itemName });
+    }
   }
 
   render() {
