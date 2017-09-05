@@ -11,10 +11,9 @@ class ShoppingList extends Component {
   }
 /* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
 
-  onClick(key, marketName){
+  clicked(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
-    this.props.toggleItems();
-    console.log("items have been toggled");
+    this.props.toggleItems(key, marketName);
     // this.setState({itemsToggled: !this.state.itemsToggled});
   }
 
@@ -24,7 +23,7 @@ class ShoppingList extends Component {
       <article>
         <h3>{ name }</h3>
         <button onClick={ handleDelete }> Delete </button>
-        <button onClick={()=> this.onClick(appendTo, name)}> Select </button>
+        <button onClick={()=> this.clicked(appendTo, name)}> Select </button>
         {
           this.state.childVisible ?
             <ShowItems  user={this.props.user} 
