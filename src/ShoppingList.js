@@ -52,14 +52,14 @@ class ShoppingList extends Component {
     return ( 
       <article>
         <h3>{ name }</h3>
-        <button onClick={ handleDelete }> Delete </button>
-        <button onClick={()=> this.clicked(appendTo, name)}> Select </button>
+            <button onClick={ handleDelete }> Delete </button>
+            <button onClick={()=> this.clicked(appendTo, name)}> Select </button> 
         {
-          this.state.childVisible && name === this.state.currentListName ?
+          this.state.childVisible ?
             <ShowItems  user={user} 
                         appendTo={appendTo}
                         content={this.props.content}
-                        listName={this.props.name}
+                        listName={name}
             />
           : <span></span>
         }
