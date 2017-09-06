@@ -10,7 +10,7 @@ class ShoppingLists extends Component {
       listedItems: []
     }
     this.handleDelete = this.handleDelete.bind(this);
-    this.itemsListedRef = database.ref('/shopping_list').child(this.props.user.uid);//.child(this.props.placeToAppendTo);
+    this.itemsListedRef = database.ref('/shopping_list').child(this.props.user.uid);
   }
 
   handleDelete(key) {

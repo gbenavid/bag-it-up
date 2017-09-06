@@ -12,7 +12,6 @@ class ShoppingList extends Component {
     }
     this.clicked = this.clicked.bind(this);
   }
-/* Add conditional for listed items that also belong to the correct store to prevent unwanted items appearing under the wrong merchant */
   display(storeItemsArray, ref){
     var itemsToBeAdded = [];
     ref.on("value", function(snapshot){
@@ -21,30 +20,15 @@ class ShoppingList extends Component {
         console.log(snapshot);
         itemsToBeAdded.push(childData);
       }
-      // console.log(itemsToBeAdded);
-        
-        
-        // if(itemsToBeAdded.includes(undefined)){
-        //   itemsToBeAdded = itemsToBeAdded.splice(0, itemsToBeAdded.length-1);        
-        // }
-        // this.state.  = itemsToBeAdded;
-
-        
-      // this.setState({newlyAppendedListItems: itemsToBeAdded})
     })
-      
-    // console.log(this.state);
-    // in your render statement you will pass your listedItems array into your ShowItems component
   }
 
   clicked(key, marketName){
     this.setState({childVisible: !this.state.childVisible});
     this.setState({currentListName: marketName});
     this.props.toggleItems(key, marketName); // sets state of this.props.content
-    var listRef = database.ref('/shopping_list').child(this.props.user.uid).child(key); // which list/ market
-    
+    var listRef = database.ref('/shopping_list').child(this.props.user.uid).child(key);
     this.display(this.props.content, listRef);
-    // set state here instead of inside display();
   }
 
   render () {
