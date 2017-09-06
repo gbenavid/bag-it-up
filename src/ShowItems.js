@@ -10,8 +10,8 @@ class ShowItems extends Component {
     this.itemsRef = database.ref('/shopping_list')
                             .child(this.props.user.uid)
                             .child(this.props.appendTo);
+                            
   }
-
   render () {
     var itemsArray = this.props.content;
     return (
